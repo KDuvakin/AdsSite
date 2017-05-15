@@ -1,0 +1,51 @@
+﻿@model sl_lv.Models.AdsViewModels
+@{
+    ViewBag.Title = "AdvertisementView";
+}
+
+<div class="row">
+    @foreach (var adv in Model.Advert)
+    {
+        <div class="col-md-3 col-lg-3 ad">
+            @if (ViewContext.RouteData.Values["lang"].ToString() == "ru")
+            {
+                <h2 class="title" id="@adv.ID_Advert">@adv.Name_RU</h2>
+            }
+
+            @if (ViewContext.RouteData.Values["lang"].ToString() == "lv")
+            {
+                <h2 class="title" id="@adv.ID_Advert">@adv.Name_LV</h2>
+            }
+
+            @if (ViewContext.RouteData.Values["lang"].ToString() != "lv" & ViewContext.RouteData.Values["lang"].ToString() != "ru")
+            {
+                <h2 class="title" id="@adv.ID_Advert">@adv.Name_EN</h2>
+            }
+
+            <div class="categories">
+                <ul class="categories">
+                    @foreach (var sub in Model.AdvertSubgroup)
+                    {
+                        if (adv.ID_Advert == sub.ID_Advert)
+                        {
+                            if (ViewContext.RouteData.Values["lang"].ToString() == "ru")
+                            {
+                                <li>@Html.ActionLink(sub.Name_RU, "Ads", new { id = sub.ID_AdvertSubgroup })</li>
+                            }
+
+                            if (ViewContext.RouteData.Values["lang"].ToString() == "lv")
+                            {
+                                <li>@Html.ActionLink(sub.Name_LV, "Ads", new { id = sub.ID_AdvertSubgroup })</li>
+                            }
+
+                            if (ViewContext.RouteData.Values["lang"].ToString() != "lv" & ViewContext.RouteData.Values["lang"].ToString() != "ru")
+                            {
+                                <li>@Html.ActionLink(sub.Name_EN, "Ads", new { id = sub.ID_AdvertSubgroup })</li>
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+</div>

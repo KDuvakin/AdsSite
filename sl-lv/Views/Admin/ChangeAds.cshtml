@@ -1,0 +1,95 @@
+﻿@model sl_lv.Models.AdsViewModels
+@{
+    ViewBag.Title = "ChangeAds";
+}
+
+<h2>Change Ads</h2>
+<div class="row">
+    <div class="col-lg-2 col-md-2 col-sm-3 hidden-xs">
+        <ul class="categories">
+            <li><a href="@Url.Action("UserControl","Admin")">User Control</a></li>
+            <li><a href="@Url.Action("ManageAds","Admin")">Managing Ads</a></li>
+            <li><a href="@Url.Action("AllAdsControl","Admin")">View All Ads</a></li>
+        </ul>
+    </div>
+    <div class="col-lg-10 col-md-8">
+        @foreach (var sub in Model.Advert)
+        {
+            if (ViewContext.RouteData.Values["lang"].ToString() == "ru")
+            {
+                <h2 class="title" id="@sub.ID_Advert">@sub.Name_RU</h2>
+            }
+
+            if (ViewContext.RouteData.Values["lang"].ToString() == "lv")
+            {
+                <h2 class="title" id="@sub.ID_Advert">@sub.Name_LV</h2>
+            }
+
+            if (ViewContext.RouteData.Values["lang"].ToString() != "lv" & ViewContext.RouteData.Values["lang"].ToString() != "ru")
+            {
+                <h2 class="title" id="@sub.ID_Advert">@sub.Name_EN</h2>
+            }
+        }
+        <div class="row editads">
+            <div class="col-lg-1 col-xs-3 Title">
+                <p>ID</p>
+            </div>
+            <div class="col-lg-3 col-xs-4 Title">
+                <p>Name RU</p>
+            </div>
+            <div class="col-lg-3 col-xs-3 Title">
+                <p>Name LV</p>
+            </div>
+            <div class="col-lg-2 col-xs-3 Title">
+                <p>Name EN</p>
+            </div>
+            <div class="col-lg-1 col-xs-1 Title">
+                <p>Change</p>
+            </div>
+            <div class="col-lg-1 col-xs-1 Title">
+                <p>Delete</p>
+            </div>
+            <div class="col-lg-1 col-xs-1 Title">
+                <p>View</p>
+            </div>
+        </div>
+
+        @foreach (var i in Model.AdvertSubgroup)
+        {
+            <div class="row editads">
+                <div class="col-lg-1">
+                    @i.ID_AdvertSubgroup
+                </div>
+                <div class="col-lg-3">
+                    @i.Name_RU
+                </div>
+                <div class="col-lg-3">
+                    @i.Name_LV
+                </div>
+                <div class="col-lg-2">
+                    @i.Name_EN
+                </div>
+                <div class="col-lg-1 col-xs-3 userinfo">
+                    <a href="@Url.Action("EditAds", "Admin",new { @id = i.ID_AdvertSubgroup })" class="btn btn-sm btn-warning">Edit</a>
+                </div>
+                <div class="col-lg-1 col-xs-3 userinfo">
+                    <a href="@Url.Action("Deleteads", "Admin",new { @id = i.ID_AdvertSubgroup , @idAdvert=i.ID_Advert })" class="btn btn-sm btn-danger">Delete</a>
+                </div>
+                <div class="col-lg-1 col-xs-3 userinfo">
+                    <a href="@Url.Action("ViewDiscription", "Admin",new { @AdvertSubgroupe = i.ID_AdvertSubgroup })" class="btn btn-sm btn-success">View</a>
+                </div>
+            </div>
+        }
+        <div class="form-group buttons-bottom">
+            <div class="col-lg-3 col-xs-6">
+                <a class="btn btn-lg btn-warning btn-width" href="@Url.Action("ManageAds","Admin")">Back </a>
+            </div>
+            <div class="ccol-lg-3 col-xs-6">
+                @foreach (var a in Model.Advert)
+                {
+                    <a class="btn btn-lg btn-success btn-width" href="@Url.Action("AddAds", "Admin", new { @id = a.ID_Advert })">ADD</a>
+                }
+            </div>
+        </div>
+    </div>
+</div>

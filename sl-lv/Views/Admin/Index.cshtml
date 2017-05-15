@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Admin Panel</h2>
+<div class="row">
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+        <ul class="categories">
+            <li><a href="@Url.Action("UserControl","Admin")">User Control</a></li>
+            <li><a href="@Url.Action("ManageAds","Admin")">Managing Ads</a></li>
+            <li><a href="@Url.Action("AllAdsControl","Admin")">View All Ads</a></li>
+        </ul>
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-9 hidden-xs">
+        <h2>
+            Hi @User.Identity.GetUserName()
+        </h2>
+    </div>
+</div>
+

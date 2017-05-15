@@ -1,0 +1,109 @@
+﻿@model sl_lv.Models.AdsViewModels
+@{
+    ViewBag.Title = "AddAdsSub";
+}
+<h2>Add Ads Sub</h2>
+@using (Html.BeginForm("AddAdsSub", "Home", FormMethod.Post))
+{
+
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="form-group" name="radiobutton" id="radiobutton">
+                @if (ViewContext.RouteData.Values["lang"].ToString() == "ru")
+                {
+                    foreach (var advert in Model.Advert)
+                    {
+                        <div id="radiobutton">
+                            @Html.RadioButtonFor(m => m.Advert, advert.ID_Advert, new { id = advert.ID_Advert })
+                            <label id="radioclick" for="@advert.ID_Advert">@advert.Name_RU</label>
+                        </div>
+
+                    }
+                }
+
+                @if (ViewContext.RouteData.Values["lang"].ToString() == "lv")
+                {
+                    foreach (var advert in Model.Advert)
+                    {
+                        <div id="radiobutton">
+                            @Html.RadioButtonFor(m => m.Advert, advert.ID_Advert, new { id = advert.ID_Advert })
+                            <label for="@advert.ID_Advert">@advert.Name_LV</label>
+                        </div>
+                    }
+                }
+
+                @if (ViewContext.RouteData.Values["lang"].ToString() != "lv" & ViewContext.RouteData.Values["lang"].ToString() != "ru")
+                {
+                    foreach (var advert in Model.Advert)
+                    {
+                        <div id="radiobutton">
+                            @Html.RadioButtonFor(m => m.Advert, advert.ID_Advert, new { id = advert.ID_Advert })
+                            <label for="@advert.ID_Advert">@advert.Name_EN</label>
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group" name="radiobuttonsub" id="radiobuttonsub">
+                <input hidden id="Advertid" name="Advertid" value="" />
+                @foreach (var a in Model.AdvertSubgroup)
+                {
+                    <div hidden>
+                        @Html.TextBoxFor(c => a.ID_Advert, new { @id = "advertid", @value = a.ID_Advert })
+                    </div>
+                }
+                <script>
+                    var values = $('#advertid').val();
+                    $("#" + values).attr("checked", "checked");
+                </script>
+
+                @if (ViewContext.RouteData.Values["lang"].ToString() == "ru")
+                {
+
+
+                    foreach (var sub in Model.AdvertSubgroup)
+                    {
+
+                        <div id="radiobutton">
+                            @Html.RadioButtonFor(m => m.AdvertSubgroup, sub.ID_AdvertSubgroup, new { id = sub.ID_AdvertSubgroup })
+                            <label id="radioclick" for="@sub.ID_AdvertSubgroup">@sub.Name_RU</label>
+                        </div>
+                    }
+                }
+
+                @if (ViewContext.RouteData.Values["lang"].ToString() == "lv")
+                {
+                    foreach (var sub in Model.AdvertSubgroup)
+                    {
+                        <div id="radiobutton">
+                            @Html.RadioButtonFor(m => m.AdvertSubgroup, sub.ID_AdvertSubgroup, new { id = sub.ID_AdvertSubgroup })
+                            <label id="radioclick" for="@sub.ID_AdvertSubgroup">@sub.Name_LV</label>
+                        </div>
+                    }
+                }
+
+                @if (ViewContext.RouteData.Values["lang"].ToString() != "lv" & ViewContext.RouteData.Values["lang"].ToString() != "ru")
+                {
+                    foreach (var sub in Model.AdvertSubgroup)
+                    {
+                        <div id="radiobutton">
+                            @Html.RadioButtonFor(m => m.AdvertSubgroup, sub.ID_AdvertSubgroup, new { id = sub.ID_AdvertSubgroup })
+                            <label id="radioclick" for="@sub.ID_AdvertSubgroup">@sub.Name_EN</label>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+                    $("input:radio[name=Advert]").click(function () {
+                        var value = $(this).val();
+                        document.getElementById("Advertid").value = value;
+                        $("form").submit();
+                    });
+
+</script>

@@ -32,9 +32,9 @@ namespace sl_lv.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -55,13 +55,13 @@ namespace sl_lv.Controllers
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
-                : message == ManageMessageId.Error ? "An error has occurred."
-                : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
-                : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
-                : "";
+            message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
+            : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
+            : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
+            : message == ManageMessageId.Error ? "An error has occurred."
+            : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
+            : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
+            : "";
 
             var userId = User.Identity.GetUserId();
             var model = new IndexViewModel
@@ -281,9 +281,9 @@ namespace sl_lv.Controllers
         public async Task<ActionResult> ManageLogins(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
-                : message == ManageMessageId.Error ? "An error has occurred."
-                : "";
+            message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
+            : message == ManageMessageId.Error ? "An error has occurred."
+            : "";
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             if (user == null)
             {
@@ -333,7 +333,7 @@ namespace sl_lv.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -384,6 +384,6 @@ namespace sl_lv.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }

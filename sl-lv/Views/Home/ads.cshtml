@@ -1,0 +1,55 @@
+﻿@model sl_lv.Models.AdsViewModels
+@{
+    ViewBag.Title = "Ads";
+}
+
+
+<div class="row">
+    @foreach (var adv in Model.AdvertSubgroup)
+    {
+        <div class="col-md-12 col-lg-12 col-sm-12 ad">
+            @if (ViewContext.RouteData.Values["lang"].ToString() == "ru")
+            {
+                <h2 class="title" id="@adv.ID_AdvertSubgroup">@adv.Name_RU</h2>
+            }
+
+            @if (ViewContext.RouteData.Values["lang"].ToString() == "lv")
+            {
+                <h2 class="title" id="@adv.ID_AdvertSubgroup">@adv.Name_LV</h2>
+            }
+
+            @if (ViewContext.RouteData.Values["lang"].ToString() != "lv" & ViewContext.RouteData.Values["lang"].ToString() != "ru")
+            {
+                <h2 class="title" id="@adv.ID_AdvertSubgroup">@adv.Name_EN</h2>
+            }
+
+            <div class="categories">
+                <ul class="categories">
+                    @foreach (var sub in Model.AdvertDiscription)
+                    {
+                        if (adv.ID_AdvertSubgroup == sub.ID_AdvertSubgroup)
+                        {
+                            if (ViewContext.RouteData.Values["lang"].ToString() == "ru")
+                            {
+                                <li><diV class="col-md-3 col-lg-3 col-sm-5">@Html.ActionLink(sub.Name_RU, "Advertisement", new { id = sub.ID_AdvertDiscription })</diV></li>
+                            }
+
+                            if (ViewContext.RouteData.Values["lang"].ToString() == "lv")
+                            {
+                                <li><diV class="col-md-3 col-lg-3 col-sm-5">@Html.ActionLink(sub.Name_LV, "Advertisement", new { id = sub.ID_AdvertDiscription })</diV></li>
+                            }
+
+                            if (ViewContext.RouteData.Values["lang"].ToString() != "lv" & ViewContext.RouteData.Values["lang"].ToString() != "ru")
+                            {
+                                <li><diV class="col-md-3 col-lg-3 col-sm-5">@Html.ActionLink(sub.Name_EN, "Advertisement", new { id = sub.ID_AdvertDiscription })</diV></li>
+                            }
+
+                        }
+                    }
+
+                </ul>
+            </div>
+
+        </div>
+    }
+</div>

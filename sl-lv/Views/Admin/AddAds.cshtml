@@ -1,0 +1,55 @@
+﻿@model sl_lv.Models.AdvertSubgroupModel
+@{
+    ViewBag.Title = "Add Ads";
+}
+
+<h2>Add Ads</h2>
+@using (Html.BeginForm("AddAds", "Admin", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-3 hidden-xs">
+            <ul class="categories">
+                <li><a href="@Url.Action("UserControl","Admin")">User Control</a></li>
+                <li><a href="@Url.Action("ManageAds","Admin")">Managing Ads</a></li>
+                <li><a href="@Url.Action("AllAdsControl","Admin")">View All Ads</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-9">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="col-lg-12">
+                @Html.LabelFor(c => c.Name_RU, new { @class = "control-label" })
+            </div>
+            <div class="col-lg-12" hidden="hidden">
+                @Html.TextBoxFor(c => c.ID_Advert, new { @class = "form-control", @value = @Model.ID_Advert })
+            </div>
+            <div class="col-lg-12">
+                @Html.TextBoxFor(c => c.Name_RU, new { @class = "form-control" })
+            </div>
+            <div class="col-lg-12">
+                @Html.LabelFor(c => c.Name_LV, new { @class = "control-label" })
+            </div>
+            <div class="col-lg-12">
+                @Html.TextBoxFor(c => c.Name_LV, new { @class = "form-control" })
+            </div>
+            <div class="col-lg-12">
+                @Html.LabelFor(c => c.Name_EN, new { @class = "control-label" })
+            </div>
+            <div class="col-lg-12">
+                @Html.TextBoxFor(c => c.Name_EN, new { @class = "form-control" })
+            </div>
+            <div class="form-group buttons-bottom">
+                <div class="col-lg-3 col-xs-6">
+                    <a class="btn btn-lg btn-warning btn-width" href="@Url.Action("ChangeAds","Admin", new { @Advert = Model.ID_Advert })">Back </a>
+                </div>
+                <div class="ccol-lg-3 col-xs-6">
+                    <input type="submit" class="btn btn-lg btn-success btn-width" value="Add Ads" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

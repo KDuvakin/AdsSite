@@ -3,6 +3,9 @@
     padding-bottom: 20px;
 }
 
+html {
+    zoom: 95%;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -10,7 +13,7 @@
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
+will truncate terms that are too long to fit in the left column 
 */
 .dl-horizontal dt {
     white-space: normal;
@@ -21,4 +24,135 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.toppanel {
+    background-color: rgb(40,150,211);
+    border-bottom: 2px solid rgb(242,242,242);
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: rgb(189,224,242);
+    background-color: rgb(97,176,219);
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
+    .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+        color: rgb(189,224,242);
+        background-color: rgb(97,176,219);
+    }
+
+.ad {
+    margin-top: 5px;
+    padding: 10px;
+}
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+    background-color: rgb(40,150,211);
+}
+
+.categories {
+    margin-top: 10px;
+    border-top: 3px solid rgb(40,150,211);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+li a {
+    display: block;
+    color: rgb(142,142,142);
+    padding: 1px 3px;
+    text-decoration: none;
+}
+
+    li a:hover {
+        color: white;
+        background-color: rgb(40,150,211);
+    }
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    color: rgb(189,224,242);
+    background-color: rgb(97,176,219);
+}
+
+.languages {
+    color: black;
+    padding: 5px;
+    background-color: rgb(40,150,211);
+}
+
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+    color: white;
+    border-top-color: white;
+    border-bottom-color: white;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: white;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    color: rgb(189,224,242);
+    background-color: rgb(97,176,219);
+}
+
+h2 {
+    font-size: 25px;
+}
+
+.Backbutton {
+    margin-top: 40px;
+    padding: 10px;
+    width: 150px;
+    height: 60px;
+    color: white;
+    background-color: rgb(40,150,211);
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+    color: rgb(189,224,242);
+    background-color: rgb(97,176,219);
+}
+
+.btn-width {
+    width: 150px;
+    margin: 1px;
+    margin-top: 5px;
+}
+
+.Title {
+    font-size: 15px;
+    color: black;
+}
+
+.mylable {
+    font-size: 20px;
+    margin: 6px;
+}
+
+.editads {
+    border-bottom: 1px solid rgb(97,176,219);
+    margin: 5px;
+    padding: 3px;
+}
+
+select[multiple], select[size]{
+    height:300px;
+}
+
+.buttons-bottom{
+    margin-top:10px;
+}
+
+.firstpage {
+    margin:1px;
 }

@@ -24,24 +24,24 @@
             }
 
             <div class="categories">
-                <ul class="categories">
+                <ul class="liststyle">
                     @foreach (var sub in Model.AdvertDiscription)
                     {
                         if (adv.ID_AdvertSubgroup == sub.ID_AdvertSubgroup)
                         {
                             if (ViewContext.RouteData.Values["lang"].ToString() == "ru")
                             {
-                                <li><diV class="col-md-3 col-lg-3 col-sm-5">@Html.ActionLink(sub.Name_RU, "Advertisement", new { id = sub.ID_AdvertDiscription })</diV></li>
+                                <li><diV class="col-md-3 col-lg-3 col-sm-4 col-xs-6">@Html.ActionLink(sub.Name_RU, "Advertisement", new { id = sub.ID_AdvertDiscription })</diV></li>
                             }
 
                             if (ViewContext.RouteData.Values["lang"].ToString() == "lv")
                             {
-                                <li><diV class="col-md-3 col-lg-3 col-sm-5">@Html.ActionLink(sub.Name_LV, "Advertisement", new { id = sub.ID_AdvertDiscription })</diV></li>
+                                <li><diV class="col-md-3 col-lg-3 col-sm-4 col-xs-6">@Html.ActionLink(sub.Name_LV, "Advertisement", new { id = sub.ID_AdvertDiscription })</diV></li>
                             }
 
                             if (ViewContext.RouteData.Values["lang"].ToString() != "lv" & ViewContext.RouteData.Values["lang"].ToString() != "ru")
                             {
-                                <li><diV class="col-md-3 col-lg-3 col-sm-5">@Html.ActionLink(sub.Name_EN, "Advertisement", new { id = sub.ID_AdvertDiscription })</diV></li>
+                                <li><diV class="col-md-3 col-lg-3 col-sm-4 col-xs-6">@Html.ActionLink(sub.Name_EN, "Advertisement", new { id = sub.ID_AdvertDiscription })</diV></li>
                             }
 
                         }

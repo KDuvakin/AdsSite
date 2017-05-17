@@ -50,7 +50,6 @@ textarea {
     }
 
 .ad {
-    margin-top: 5px;
     padding: 10px;
 }
 
@@ -59,18 +58,24 @@ textarea {
 }
 
 .categories {
+    margin: 0;
+    padding: 0;
     margin-top: 10px;
     border-top: 3px solid rgb(40,150,211);
     list-style-type: none;
-    margin: 0;
-    padding: 0;
     background-color: white;
+}
+
+.liststyle {
+    list-style-type: none;
+    padding:0;
 }
 
 li a {
     display: block;
     color: rgb(142,142,142);
     padding: 1px 3px;
+    padding-left: 20px;
     text-decoration: none;
 }
 
@@ -145,14 +150,14 @@ h2 {
     padding: 3px;
 }
 
-select[multiple], select[size]{
-    height:300px;
+select[multiple], select[size] {
+    height: 300px;
 }
 
-.buttons-bottom{
-    margin-top:10px;
+.buttons-bottom {
+    margin-top: 10px;
 }
 
 .firstpage {
-    margin:1px;
+    margin: 1px;
 }

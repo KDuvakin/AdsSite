@@ -7,7 +7,7 @@
 {
 
     <div class="row">
-        <div class="col-lg-2">
+        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6">
             <div class="form-group" name="radiobutton" id="radiobutton">
                 @if (ViewContext.RouteData.Values["lang"].ToString() == "ru")
                 {
@@ -45,7 +45,7 @@
 
             </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6">
             <div class="form-group" name="radiobuttonsub" id="radiobuttonsub">
                 <input hidden id="Advertid" name="Advertid" value="" />
                 @foreach (var a in Model.AdvertSubgroup)
@@ -84,6 +84,7 @@
                     }
                 }
 
+
                 @if (ViewContext.RouteData.Values["lang"].ToString() != "lv" & ViewContext.RouteData.Values["lang"].ToString() != "ru")
                 {
                     foreach (var sub in Model.AdvertSubgroup)
@@ -100,7 +101,7 @@
 }
 
 <script>
-                    $("input:radio[name=Advert]").click(function () {
+                    $("input:radio[name=AdvertSubgroup]").click(function () {
                         var value = $(this).val();
                         document.getElementById("Advertid").value = value;
                         $("form").submit();

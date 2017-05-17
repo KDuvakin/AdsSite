@@ -166,7 +166,7 @@ namespace sl_lv.Controllers
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("ConfirmEmailAfterRegistration", "Account", new { email = model.Email });
                 }
                 AddErrors(result);
             }
@@ -484,5 +484,12 @@ namespace sl_lv.Controllers
             }
         }
         #endregion
+
+        [AllowAnonymous]
+        public ActionResult ConfirmEmailAfterRegistration(string email)
+        {
+            ViewBag.useremail = email;
+            return View();
+        }
     }
 }

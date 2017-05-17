@@ -328,9 +328,9 @@ namespace sl_lv.Controllers
                                 }
 
                                 csvReader.Close();
-                                TempData["Message"] = "Add data Success";
+                                                              
+                            }                           
 
-                            }
                         }
                     }
                 }

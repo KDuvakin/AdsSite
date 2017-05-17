@@ -8,6 +8,7 @@ namespace Database
 {
     public class DataBaseRepo
     {
+
         private DataRepo DB = new DataRepo();
 
         public List<Advert> GetAdvert()
@@ -183,5 +184,6 @@ namespace Database
             DB.AdvertDiscriptions.Add(adddiscription);
             DB.SaveChanges();
         }
+
     }
 }
